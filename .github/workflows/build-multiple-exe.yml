@@ -46,17 +46,6 @@ jobs:
         pyinstaller --onefile penaandfcy.py
 
     # ============ Create GitHub Release ============
-    - name: Create Release
-      id: create_release
-      uses: softprops/action-gh-release@v2
-      with:
-        tag_name: v${{ github.run_number }}
-        name: Build ${{ github.run_number }}
-        body: |
-          🚀 Nouvelle release automatique.
-          ✅ Build number: ${{ github.run_number }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     # ============ Upload all exe to Release ============
     - name: Upload all exe to Release
@@ -68,5 +57,8 @@ jobs:
           dist/longpittime.exe
           dist/fcydep.exe
           dist/penaandfcy.exe
+        body: |
+          🚀 Nouvelle release automatique.
+          ✅ Build number: ${{ github.run_number }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
