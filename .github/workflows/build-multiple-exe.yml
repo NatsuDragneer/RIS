@@ -4,8 +4,10 @@ on:
   push:
     branches:
       - main
+
 permissions:
   contents: write
+
 jobs:
   build:
     runs-on: windows-latest
@@ -28,24 +30,31 @@ jobs:
         pip install -r requirements.txt
         pip install pyinstaller
 
-    # ============ Build tes exe ============
+    # ============ Build tes exe + rename ============
     - name: Build fuel.exe
       run: |
         pyinstaller --onefile --noconsole fuel.py
+        move dist\fuel.exe dist\fuel-v${{ github.run_number }}.exe
 
     - name: Build longpittime.exe
       run: |
         pyinstaller --onefile --noconsole longpittime.py
+        move dist\longpittime.exe dist\longpittime-v${{ github.run_number }}.exe
 
     - name: Build fcydep.exe
       run: |
         pyinstaller --onefile --noconsole fcydep.py
+        move dist\fcydep.exe dist\fcydep-v${{ github.run_number }}.exe
 
     - name: Build penaandfcy.exe
       run: |
         pyinstaller --onefile --noconsole penaandfcy.py
+        move dist\penaandfcy.exe dist\penaandfcy-v${{ github.run_number }}.exe
 
-    # ============ Create GitHub Release ============
+    # ============ Vérifie dist ============
+    - name: List dist folder contents
+      run: |
+        dir dist
 
     # ============ Upload all exe to Release ============
     - name: Upload all exe to Release
@@ -53,10 +62,10 @@ jobs:
       with:
         tag_name: v${{ github.run_number }}
         files: |
-          dist/fuel.exe
-          dist/longpittime.exe
-          dist/fcydep.exe
-          dist/penaandfcy.exe
+          dist/fuel-v${{ github.run_number }}.exe
+          dist/longpittime-v${{ github.run_number }}.exe
+          dist/fcydep-v${{ github.run_number }}.exe
+          dist/penaandfcy-v${{ github.run_number }}.exe
         body: |
           🚀 Nouvelle release automatique.
           ✅ Build number: ${{ github.run_number }}
