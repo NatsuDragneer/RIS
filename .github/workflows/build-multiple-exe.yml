@@ -62,6 +62,7 @@ jobs:
     - name: Upload all exe to Release
       uses: softprops/action-gh-release@v2
       with:
+        tag_name: v${{ github.run_number }}
         files: |
           dist/fuel.exe
           dist/longpittime.exe
