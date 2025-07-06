@@ -1,0 +1,6 @@
+pyinstaller
+pandas
+openpyxl
+xlrd
+lxml
+requests
