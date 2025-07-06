@@ -1,0 +1,68 @@
+# ========================
+# FICHIERS SYSTEME / OS
+# ========================
+
+.DS_Store          # macOS
+Thumbs.db          # Windows
+
+# ========================
+# ENVIRONNEMENT PYTHON
+# ========================
+
+# Dossiers d'environnement virtuel
+venv/
+env/
+ENV/
+
+# Fichiers compilés Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ========================
+# BUILDS ET SPEC
+# ========================
+
+# Fichiers générés par pyinstaller ou build
+*.spec
+build/
+dist/
+
+# ========================
+# EXPORTS ET LOGS
+# ========================
+
+# Exports Excel/CSV
+*.csv
+*.xlsx
+*.xls
+
+# Fichiers logs
+*.log
+Log_*.log
+
+# ========================
+# FICHIERS DE CONFIGURATION LOCALE
+# ========================
+
+# VSCode settings
+.vscode/
+FCY_exports/
+LapPenalty_exports/
+message.xml
+livetrackinginternet
+# ========================
+# VARIABLES D'ENVIRONNEMENT
+# ========================
+
+# Si tu ajoutes un .env plus tard pour tes clés API
+.env
+.env.*
+
+# ========================
+# AUTRES
+# ========================
+
+# Fichiers temporaires de tests ou copies
+.gitattributes copy
