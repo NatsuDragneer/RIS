@@ -31,19 +31,19 @@ jobs:
     # ============ Build tes exe ============
     - name: Build fuel.exe
       run: |
-        pyinstaller --onefile fuel.py
+        pyinstaller --onefile --noconsole fuel.py
 
     - name: Build longpittime.exe
       run: |
-        pyinstaller --onefile longpittime.py
+        pyinstaller --onefile --noconsole longpittime.py
 
     - name: Build fcydep.exe
       run: |
-        pyinstaller --onefile fcydep.py
+        pyinstaller --onefile --noconsole fcydep.py
 
     - name: Build penaandfcy.exe
       run: |
-        pyinstaller --onefile penaandfcy.py
+        pyinstaller --onefile --noconsole penaandfcy.py
 
     # ============ Create GitHub Release ============
 

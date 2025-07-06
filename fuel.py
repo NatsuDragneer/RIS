@@ -11,7 +11,7 @@ def analyser_voitures(file_path):
     ]
 
     # Conversion de la colonne Date
-    df['Date'] = pd.to_datetime(df['Date'], format='%y-%m-%d %H:%M')
+    df['Date'] = pd.to_datetime(df['Date'], format='%y-%m-%d %H:%M:%S')
 
     # Conversion de Time en timedelta
     df['Time_td'] = pd.to_timedelta(df['Time'])
